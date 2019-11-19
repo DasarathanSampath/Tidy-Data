@@ -80,6 +80,6 @@ run_analysis <- function(){
   melted_data <- melt(combined_data, id=c("subject", "activity"))
   casted_data <- dcast(melted_data, subject + activity ~ variable, mean)
   names(casted_data)[-c(1:2)] <- paste("[mean of]" , names(casted_data)[-c(1:2)] )
-  write.table(casted_data, "tidy_data.txt", sep = ",")
+  write.table(casted_data, "tidy_data.txt", sep = ",", row.name=FALSE)
   
 }
